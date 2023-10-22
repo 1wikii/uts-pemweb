@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Form</title>
+
+   <link rel="stylesheet" href="./form.css">
+   <link rel="icon" href="./asset/icon.png">
+</head>
+<body>
+
+   <nav id="navbar">
+      <div id="logo">
+         <a href="index.html"> <img style="width: 100%;" src="./asset/logo3.png" alt="Not Found"></a>
+      </div>
+      <ul>
+         <li> <a href="./index.html">Home</a> </li>
+         <li> <a href="./table.html">Table</a> </li>
+      </ul>
+   </nav>
+
+   <div class="container-content">
+
+      <div class="sidebar">
+         <ul>
+            <li class="li-sidebar-icon" style="margin: 0 0 50px 0;"> <img style="margin: 0 40px 0 0;" class="sidebar-icon" src="./asset/sidebar.png" alt="Not Found"> <span>Sidebar</span></li>
+            <a href="index.html"> <li> <img style="margin: 0 60px 0 0;" class="sidebar-form" src="./asset/home.png" alt="Not Found"> <span>Home</span> </li> </a>
+            <a href="table.html"> <li> <img style="margin: 0 60px 0 0;" class="sidebar-table" src="./asset/table.png" alt="Not Found"> <span>Table</span> </li> </a>
+         </ul>
+      </div>
+
+      <div class="center-content">
+         <div class="content">
+            <form id="form">
+               <h1>Formulir <br> Pendaftaran</h1>
+   
+               <!-- <div class="form-input"> -->
+                  <label>Nama</label>
+                  <input id="nama" type="text" required> 
+   
+                  <label>NIM</label>
+                  <input id="NIM" type="text" required> 
+   
+                  <label>Program Studi</label>
+                  <input id="prodi" type="text" required> 
+   
+                  <label>Jenis Kelamin</label>
+                  <select id="JK" type="text" required>
+                     <option value="" selected disabled></option>
+                     <option value="Laki-Laki">Laki-Laki</option>
+                     <option value="Perempuan">Perempuan</option>
+                  </select>
+   
+                  <label>Tanggal Lahir</label>
+                  <input id="tgl" type="date" required> 
+   
+                  <label>Alamat</label>
+                  <input id="alamat" type="text" required> 
+   
+                  <label>Email</label>
+                  <input id="email" type="email" required> 
+   
+                  <label>Password</label>
+                  <input id="pass" type="password" required> 
+   
+                  <input class="button" type="submit" value="Daftar"></input>
+   
+               <!-- </div> -->
+            </form>
+         </div>
+      </div>
+   </div>
+
+   <footer id="footer">
+      <span>Ahmad Dwiky &copy; Copyright 2023</span>
+      
+      <div class="container-social-media">
+         <a href="https://www.instagram.com/ahmddwk11/" target="_blank"> <img class="ig" src="./asset/ig.png" alt="Not Found"></a>
+         <a href="https://github.com/1wikii" target="_blank"> <img class="github" src="./asset/github.png" alt="Not Found"></a>
+         <a href="https://www.linkedin.com/in/ahmad-dwiky-zerro-dixxon/" target="_blank"> <img class="in" src="./asset/in.png" alt="Not Found"></a>
+      </div>
+   </footer>
+
+   <script>
+
+   /* ----------------Data Formulir----------------- */
+   document.getElementById('form').addEventListener('submit', function(event) { console.log('MASUKK SUBMITT');
+
+      event.preventDefault();  // Agar form tidak mengirim data ke server
+
+      var nama = document.getElementById('nama').value;
+      var NIM = document.getElementById('NIM').value;
+      var prodi = document.getElementById('prodi').value;
+      var JK = document.getElementById('JK').value;
+      var tgl = document.getElementById('tgl').value;
+      var alamat = document.getElementById('alamat').value;
+      var email = document.getElementById('email').value;
+      var pass = document.getElementById('pass').value;
+
+      // Menyimpan data ke dalam session storage
+      sessionStorage.setItem('nama', nama);
+      sessionStorage.setItem('NIM', NIM);
+      sessionStorage.setItem('prodi', prodi);
+      sessionStorage.setItem('JK', JK);
+      sessionStorage.setItem('tgl', tgl);
+      sessionStorage.setItem('alamat', alamat);
+      sessionStorage.setItem('email', email);
+      sessionStorage.setItem('pass', pass);
+
+      // Pindah halaman
+      window.location.href = '../table.html';
+
+   });
+   
+   
+   /* ----------------Animasi Sidebar----------------- */
+      const sidebar = document.querySelector('.sidebar');
+      const content = document.querySelector('.content');
+      const footer = document.getElementById('footer');
+      const navbar = document.getElementById('navbar');
+
+      sidebar.addEventListener('mouseenter', () => {
+         content.style.filter = 'blur(1px)';
+         footer.style.filter = 'blur(1px)';
+         navbar.style.filter = 'blur(1px)';
+      });
+
+      sidebar.addEventListener('mouseleave', () => {
+         content.style.filter = '';
+         footer.style.filter = '';
+         navbar.style.filter = '';
+      });
+
+ 
+   </script>
+
+</body>
+</html>

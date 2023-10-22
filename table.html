@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Table</title>
+
+   <link rel="stylesheet" href="./table.css">
+   <link rel="icon" href="./asset/icon.png">
+</head>
+<body>
+
+   <nav id="navbar">
+      <div id="logo">
+         <a href="index.html"> <img style="width: 100%;" src="./asset/logo3.png" alt="Not Found"></a>
+      </div>
+      <ul>
+         <li> <a href="./index.html">Home</a> </li>
+         <li> <a href="./form.html">Form</a> </li>
+      </ul>
+   </nav>
+
+   <div class="container-content">
+
+      <div class="sidebar">
+         <ul>
+            <li class="li-sidebar-icon" style="margin: 0 0 50px 0;"> <img style="margin: 0 40px 0 0;" class="sidebar-icon" src="./asset/sidebar.png" alt="Not Found"> <span>Sidebar</span></li>
+            <a href="index.html"> <li> <img style="margin: 0 60px 0 0;" class="sidebar-table" src="./asset/home.png" alt="Not Found"> <span>Home</span> </li> </a>
+            <a href="form.html"> <li> <img style="margin: 0 60px 0 0;" class="sidebar-form" src="./asset/form.png" alt="Not Found"> <span>Form</span> </li> </a>
+         </ul>
+      </div>
+
+      <div class="center-content">
+         <div class="content">
+            
+            <table id="mytable" border="1">
+               <thead>
+                  <tr>
+                     <th>Nama</th>
+                     <th>NIM</th>
+                     <th>Program Studi</th>
+                     <th>Jenis Kelamin</th>
+                     <th>Tanggal Lahir</th>
+                     <th>Alamat</th>
+                     <th>Email</th>
+                     <th>Password</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Ahmad Dwiky Zerro Dixxon</td>
+                     <td>121140044</td>
+                     <td>Teknik Informatika</td>
+                     <td>Laki-laki</td>
+                     <td>14-05-2003</td>
+                     <td>Labuhan Ratu VI</td>
+                     <td>Ahmad.121140044@student.itera.ac.id</td>
+                     <td>12345</td>
+                  </tr>
+                  <tr>
+                     <td>Budhi Voldigoad</td>
+                     <td>121140097</td>
+                     <td>Teknik Informatika</td>
+                     <td>Laki-laki</td>
+                     <td>23-08-2003</td>
+                     <td>Gisting</td>
+                     <td>Budhi.121140097@student.itera.ac.id</td>
+                     <td>budhiganteng</td>
+                  </tr>
+                  <tr>
+                     <td>Rizki Tempest</td>
+                     <td>121140108</td>
+                     <td>Teknik Informatika</td>
+                     <td>Perempuan</td>
+                     <td>25-01-2004</td>
+                     <td>Jakarta Utara</td>
+                     <td>Rizki.121140108@student.itera.ac.id</td>
+                     <td>rizkicantik</td>
+                  </tr>
+                  <tr>
+                     <td>Burhan D. Jomok</td>
+                     <td>121140001</td>
+                     <td>Teknik Informatika</td>
+                     <td>Biner</td>
+                     <td>04-02-2006</td>
+                     <td>Bekasi</td>
+                     <td>Burhan.121140001@student.itera.ac.id</td>
+                     <td>burhanjomok123</td>
+                  </tr>
+                  <tr>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+
+   <footer id="footer">
+      <span>Ahmad Dwiky &copy; Copyright 2023</span>
+      
+      <div class="container-social-media">
+         <a href="https://www.instagram.com/ahmddwk11/" target="_blank"> <img class="ig" src="./asset/ig.png" alt="Not Found"></a>
+         <a href="https://github.com/1wikii" target="_blank"> <img class="github" src="./asset/github.png" alt="Not Found"></a>
+         <a href="https://www.linkedin.com/in/ahmad-dwiky-zerro-dixxon/" target="_blank"> <img class="in" src="./asset/in.png" alt="Not Found"></a>
+      </div>
+   </footer>
+
+   <script>
+      /* ----------------Animasi Sidebar----------------- */
+      const sidebar = document.querySelector('.sidebar');
+      const content = document.querySelector('.content');
+      const footer = document.getElementById('footer');
+      const navbar = document.getElementById('navbar');
+
+      sidebar.addEventListener('mouseenter', () => {
+         content.style.filter = 'blur(1px)';
+         footer.style.filter = 'blur(1px)';
+         navbar.style.filter = 'blur(1px)';
+      });
+
+      sidebar.addEventListener('mouseleave', () => {
+         content.style.filter = '';
+         footer.style.filter = '';
+         navbar.style.filter = '';
+      });
+
+
+      // Mengambil data dari session kemudian membuat row data baru
+      document.addEventListener('DOMContentLoaded', function() {
+
+      var nama = sessionStorage.getItem('nama');
+      var NIM = sessionStorage.getItem('NIM');
+      var prodi = sessionStorage.getItem('prodi');
+      var JK = sessionStorage.getItem('JK');
+      var tgl = sessionStorage.getItem('tgl');
+      var alamat = sessionStorage.getItem('alamat');
+      var email = sessionStorage.getItem('email');
+      var pass = sessionStorage.getItem('pass');
+
+      // Mengecek apakah data tersedia di sessionStorage
+      if (nama && NIM && prodi && JK && tgl && alamat && email && pass) {
+
+         var table = document.getElementById('mytable');
+         var newRow = table.insertRow(table.rows.length); 
+
+         var cell1 = newRow.insertCell(0);
+         cell1.innerHTML = nama;
+
+         var cell2 = newRow.insertCell(1);
+         cell2.innerHTML = NIM;
+
+         var cell3 = newRow.insertCell(2);
+         cell3.innerHTML = prodi;
+
+         var cell4 = newRow.insertCell(3);
+         cell4.innerHTML = JK;
+
+         var cell5 = newRow.insertCell(4);
+         cell5.innerHTML = tgl;
+
+         var cell6 = newRow.insertCell(5);
+         cell6.innerHTML = alamat;
+
+         var cell7 = newRow.insertCell(6);
+         cell7.innerHTML = email;
+
+         var cell8 = newRow.insertCell(7);
+         cell8.innerHTML = pass;
+      }
+   });
+   </script>
+
+</body>
+</html>

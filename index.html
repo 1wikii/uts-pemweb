@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home</title>
+
+   <link rel="stylesheet" href="./home.css">
+   <link rel="icon" href="./asset/icon.png">
+</head>
+<body>
+
+   <nav id="navbar">
+      <div id="logo">
+         <a href="index.html"> <img style="width: 100%;" src="./asset/logo3.png" alt="Not Found"></a>
+      </div>
+      <ul>
+         <li> <a href="./form.html">Form</a> </li>
+         <li> <a href="./table.html">Table</a> </li>
+      </ul>
+   </nav>
+
+   <div class="container-content">
+
+      <div class="sidebar">
+         <ul>
+            <li class="li-sidebar-icon" style="margin: 0 0 50px 0;"> <img style="margin: 0 40px 0 0;" class="sidebar-icon" src="./asset/sidebar.png" alt="Not Found"> <span>Sidebar</span></li>
+            <a href="form.html"> <li> <img style="margin: 0 60px 0 0;" class="sidebar-form" src="./asset/form.png" alt="Not Found"> <span>Form</span> </li> </a>
+            <a href="table.html"> <li> <img style="margin: 0 60px 0 0;" class="sidebar-table" src="./asset/table.png" alt="Not Found"> <span>Table</span> </li> </a>
+         </ul>
+      </div>
+
+      <div class="center-content">
+         <div class="content">
+            <div class="content-text">
+               <h1>
+                  website description
+               </h1>
+               <h2 id="typing-text">
+                  <!-- Animasi Typing -->
+               </h2>
+               <p>
+                  This website created to fullfill the mid-semester exam
+                  web programming. The technology used in this website is 
+                  Html dan Css with interactive features like navigate to another
+                  page, being able to receive input from user using Html form and 
+                  then display input data from user in the Html table. There also 
+                  additional features, namely sidebar. The sidebar feature also used 
+                  for navigation between Html pages. All components on this website 
+                  use a flexbox layout to organize the layout of this websites. 
+                  although not all but almost all components support responsive design
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <footer id="footer">
+      <span>Ahmad Dwiky &copy; Copyright 2023</span>
+      
+      <div class="container-social-media">
+         <a href="https://www.instagram.com/ahmddwk11/" target="_blank"> <img class="ig" src="./asset/ig.png" alt="Not Found"></a>
+         <a href="https://github.com/1wikii" target="_blank"> <img class="github" src="./asset/github.png" alt="Not Found"></a>
+         <a href="https://www.linkedin.com/in/ahmad-dwiky-zerro-dixxon/" target="_blank"> <img class="in" src="./asset/in.png" alt="Not Found"></a>
+      </div>
+   </footer>
+
+   <script>
+       /* ----------------Animasi Sidebar----------------- */
+      const sidebar = document.querySelector('.sidebar');
+      const content = document.querySelector('.content');
+      const footer = document.getElementById('footer');
+      const navbar = document.getElementById('navbar');
+
+      sidebar.addEventListener('mouseenter', () => {
+         content.style.filter = 'blur(1px)';
+         footer.style.filter = 'blur(1px)';
+         navbar.style.filter = 'blur(1px)';
+      });
+
+      sidebar.addEventListener('mouseleave', () => {
+         content.style.filter = '';
+         footer.style.filter = '';
+         navbar.style.filter = '';
+      });
+
+
+   /* ----------------Animasi Loop Typing----------------- */
+   const typedTextElement = document.getElementById('typing-text');
+   const textToType = "Homepage";
+
+   function typeText() {
+      let i = 0;
+      typedTextElement.textContent = "";
+
+      function type() {
+         if (i < textToType.length) {
+               typedTextElement.textContent += textToType.charAt(i);
+               i++;
+               setTimeout(type, 100); // Waktu type huruf (100ms)
+         } else {
+               setTimeout(eraseText, 500); // Tunggu 0.5 detik sebelum menghapus teks
+         }
+      }
+
+      function eraseText() {
+         if (i >= 0) {
+               typedTextElement.textContent = textToType.substring(0, i);
+               i--;
+               setTimeout(eraseText, 100); // Waktu hapus huruf (100ms)
+         } else {
+               setTimeout(type, 50); // Tunggu 0.05 detik sebelum mulai mengetik lagi
+         }
+      }
+
+      type(); // Memulai animasi
+   }
+
+   typeText(); // Memulai animasi pertama
+   </script>
+
+</body>
+</html>

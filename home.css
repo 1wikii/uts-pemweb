@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+/* -----------Universal selector-------------- */
+* {
+   box-sizing: border-box;
+}
+
+/* -------------Grouping selector------------- */
+h1, h2, h3, ul{
+   margin: 0;
+   padding: 0;
+}
+
+
+/* -------------Descendant selector------------- */
+a{
+   color: white;
+   text-decoration: none;
+}
+
+nav{
+   padding: 10px 80px;
+   font-family: 'Tilt Neon', sans-serif;
+   display: flex;
+   justify-content: space-between;
+   background-color: rgba(0, 0, 0, 0.400);
+}
+
+nav ul{
+   margin: 0;
+   display: flex;
+   justify-content: start;
+   align-items: center;
+}
+
+nav ul li{
+   margin: 0 5px;
+   font-size: 1.3em;
+   font-weight: bold;
+   list-style: none;
+   display: inline-block;
+}
+
+
+.sidebar{
+   padding: 20px 10px;
+   height: 100%;
+   border-radius: 5px;
+
+   width: 70px;
+   overflow: hidden;
+   transition: width 0.2s linear;
+
+   z-index: 2;
+
+   background-color: rgba(0, 0, 0, 0.651);
+}
+.sidebar:hover{
+   width: 250px;
+   transition: all 0.5s ease;
+}
+
+.sidebar ul li{
+   width: auto;
+   padding: 10px 5px;
+   margin: 20px 0;
+   border-radius: 3px;
+   list-style: none;
+   display: flex;
+   align-items: center;
+}
+.sidebar ul li:hover {
+   background-color: rgba(255, 255, 255, 0.199);
+}
+.sidebar ul .li-sidebar-icon {
+   pointer-events: none;
+}
+
+.sidebar ul li .sidebar-icon{
+   width: 40px;
+}
+.sidebar ul li .sidebar-form,
+.sidebar ul li .sidebar-table{
+   width: 30px;
+}
+
+img{
+   margin: 0; padding: 0;
+}
+
+/* -------------Element selector------------- */
+html{
+   margin: 0;
+   padding: 0;
+}
+
+body{
+   margin: 0;
+   padding: 0;
+   color: white;
+   display: flex;
+   flex-direction: column;
+   background-image: url('./asset/bg.jpg');
+   background-size: 100% 100%;
+   background-repeat: no-repeat;
+   background-position: center;
+
+}
+
+/* ---------------Attribute selector---------------- */
+a[href^="./"]{
+   padding: 3px 70px;
+   border-radius: 3px;
+   color: white;
+   text-decoration: none;
+}
+
+/* ---------------Psuedo-class selector---------------- */
+a[href^="./"]:hover{
+   color: rgba(0, 0, 255, 0.349);
+}
+
+/* ---------------ID selector---------------- */
+#logo{
+   width: 50px;
+   cursor: pointer;
+}
+
+/* ---------------Class selector---------------- */
+.container-content .center-content{
+   flex: 1;
+   display: flex;
+   justify-content: center;
+   align-items: start;
+}
+
+.container-content{
+   width: 100%;
+   height: 80vh;
+   display: flex;
+
+   font-family: 'Montserrat', sans-serif;
+   color: rgba(255, 255, 255, 0.685);
+   background-color: rgba(0, 0, 0, 0.250);
+
+   z-index: 1;
+}
+
+
+/* ---------------Descendent selector---------------- */
+.container-content .content{
+   height: 100%;
+   padding: 100px 0;
+   margin: 0 0 0 70px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.container-content .content .content-text{
+   text-align: center;
+   width: 65%;
+}
+.container-content .content .content-text h1{
+   font-size: 3em;
+   text-transform: uppercase;
+}
+.container-content .content .content-text h2{
+   margin: 20px 0;
+   font-size: 1.5em;
+}
+.container-content .content .content-text p{
+   text-align: justify;
+   line-height: 1.5;
+}
+
+/* ----------------Animasi----------------- */
+#typing-text::after {
+   content: "";
+   animation: blink-caret 1s step-end infinite;
+}
+
+@keyframes blink-caret {
+   0%, 100% {
+       border-right: 0.08em solid transparent;
+   }
+   50% {
+       border-right: 0.08em solid #0000003d;
+   }
+}
+
+
+footer{
+   padding: 0 100px;
+   width: 100%;
+   height: 35px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   font-family: 'Montserrat', sans-serif;
+   background-color: rgba(3, 3, 3, 0.808);
+}
+footer span{
+   font-size: 0.7em;
+}
+
+footer .container-social-media img{
+   margin: 0 5px;
+   width: 28px;
+}
