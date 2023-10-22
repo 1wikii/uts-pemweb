@@ -1,2 +1,2 @@
 # uts-pemweb
-Ujian Tengah Semester
+https://1wikii.github.io/uts-pemweb/
